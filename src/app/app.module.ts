@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
+import { ResumeGeneratorRoutingModule } from './resume-generator/resume-generator-routing.module';
+import { ResumeGeneratorModule } from './resume-generator/resume-generator.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     MaterialModule,
     CoreModule,
+    ResumeGeneratorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
