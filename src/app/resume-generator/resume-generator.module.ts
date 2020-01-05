@@ -9,6 +9,8 @@ import { PortfolioLinksComponent } from './portfolio-links/portfolio-links.compo
 import { SummaryComponent } from './summary/summary.component';
 import { MaterialModule } from '../material/material.module';
 import { ResumeGeneratorRoutingModule } from './resume-generator-routing.module';
+import { StepperWflComponent } from './stepper-wfl/stepper-wfl.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,10 +21,10 @@ import { ResumeGeneratorRoutingModule } from './resume-generator-routing.module'
                 EducationComponent, 
                 CoursesComponent, 
                 PortfolioLinksComponent, 
-                SummaryComponent],
+                SummaryComponent, StepperWflComponent],
   imports: [
     CommonModule,
- 
+    ReactiveFormsModule,
     MaterialModule,
   ],
   exports: [
@@ -32,6 +34,7 @@ import { ResumeGeneratorRoutingModule } from './resume-generator-routing.module'
     EducationComponent,
     CoursesComponent, 
     PortfolioLinksComponent, 
-    SummaryComponent]
+    SummaryComponent,
+    StepperWflComponent]
 })
 export class ResumeGeneratorModule { }

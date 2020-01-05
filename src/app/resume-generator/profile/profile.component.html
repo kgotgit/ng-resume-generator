@@ -1,1 +1,11 @@
-<p>profile works!</p>
+<form [formGroup]="firstFormGroup">
+    <ng-template matStepLabel>Fill out your name</ng-template>
+    <mat-form-field>
+      <input matInput placeholder="First name" formControlName="firstName" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Last name" formControlName="lastName" required>
+      </mat-form-field>
+    
+  </form>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  isLinear = false;
+  @Output() formGroupEmitter=new EventEmitter<FormGroup>();
+  @Input() firstFormGroup: FormGroup;
+ 
+
+  constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
+    this.firstFormGroup = this._formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+    }); 
+
+    this.formGroupEmitter.emit(this.firstFormGroup);
+   /*  this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    }); */
   }
 
 }

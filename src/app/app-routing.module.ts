@@ -7,12 +7,13 @@ import { ExperienceComponent } from './resume-generator/experience/experience.co
 import { CoursesComponent } from './resume-generator/courses/courses.component';
 import { SummaryComponent } from './resume-generator/summary/summary.component';
 import { PortfolioLinksComponent } from './resume-generator/portfolio-links/portfolio-links.component';
+import { StepperWflComponent } from './resume-generator/stepper-wfl/stepper-wfl.component';
 
 const routes: Routes = [
    
     {
         path:'profile',
-        component:ProfileComponent,
+        component:StepperWflComponent,
     },
     {
         path:'skills',  

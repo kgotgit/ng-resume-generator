@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ResumeGeneratorRoutingModule } from './resume-generator/resume-generator-routing.module';
 import { ResumeGeneratorModule } from './resume-generator/resume-generator.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import { ResumeGeneratorModule } from './resume-generator/resume-generator.modul
     MaterialModule,
     CoreModule,
     ResumeGeneratorModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
