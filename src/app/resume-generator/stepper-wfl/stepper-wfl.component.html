@@ -1,4 +1,4 @@
-<mat-vertical-stepper [linear]="isLinear" #stepper>
+<mat-vertical-stepper [linear]="isLinear" #stepper class="container">
     <mat-step [stepControl]="firstFormGroup">
         <app-profile [firstFormGroup]="firstFormGroup" (formGroupEmitter)="listenToFormGroup($event)"></app-profile>
         <div>

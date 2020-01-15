@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.required],
+      mobile:['',Validators.required]
     }); 
 
     this.formGroupEmitter.emit(this.firstFormGroup);
