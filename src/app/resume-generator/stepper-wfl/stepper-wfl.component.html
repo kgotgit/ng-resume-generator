@@ -1,8 +1,8 @@
-<mat-vertical-stepper [linear]="isLinear" #stepper class="container">
+<mat-vertical-stepper [linear]="isLinear" #stepper class="alternate-theme container" color="primary">
     <mat-step [stepControl]="firstFormGroup">
         <app-profile [firstFormGroup]="firstFormGroup" (formGroupEmitter)="listenToFormGroup($event)"></app-profile>
         <div>
-            <button mat-button matStepperNext>Next</button>
+            <button color="primary" mat-raised-button matStepperNext>Next</button>
           </div>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
