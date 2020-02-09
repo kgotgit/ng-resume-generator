@@ -10,41 +10,18 @@ import { PortfolioLinksComponent } from './resume-generator/portfolio-links/port
 import { StepperWflComponent } from './resume-generator/stepper-wfl/stepper-wfl.component';
 
 const routes: Routes = [
-   
+
     {
-        path:'profile',
+        path:'',
+        redirectTo:'stepper',
+        pathMatch:'full'
+    },
+
+    {
+        path:'stepper',
         component:StepperWflComponent,
     },
-    {
-        path:'skills',  
-        component:SkillsComponent,
-    },
-    {
-        path:'education',
-        component:EducationComponent,
-    },
-    {
-        path:'experience',
-        component:ExperienceComponent,
-    },
-    {
-        path:'courses',
-        component:CoursesComponent,
-    },
-    {
-        path:'portfoliolinks',
-        component:PortfolioLinksComponent,
-    },
-    {
-        path:'summary',
-        component:SummaryComponent,
-    }
-    /*{
-
-       path:'resume',
-        loadChildren:()=>import('./resume-generator/resume-generator.module').then(mod=>{console.log(mod);mod.ResumeGeneratorModule}) 
-
-    }*/
+  
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

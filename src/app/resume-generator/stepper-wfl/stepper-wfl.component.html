@@ -1,4 +1,4 @@
-<mat-vertical-stepper [linear]="isLinear" #stepper class="alternate-theme container" color="primary">
+<mat-vertical-stepper [linear]="isLinear" #stepper class="container" color="primary">
     <mat-step [stepControl]="firstFormGroup">
       <ng-template matStepLabel>Profile</ng-template>
         <app-profile [firstFormGroup]="firstFormGroup" (formGroupEmitter)="listenToFormGroup($event)"></app-profile>
