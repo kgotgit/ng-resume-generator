@@ -11,6 +11,9 @@ import { MaterialModule } from '../material/material.module';
 import { ResumeGeneratorRoutingModule } from './resume-generator-routing.module';
 import { StepperWflComponent } from './stepper-wfl/stepper-wfl.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ExperienceItemComponent } from './experience/experience-item/experience-item.component';
+import { DynaFacadeService } from '../core/services/dyna-facade.service';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -21,11 +24,12 @@ import { ReactiveFormsModule } from '@angular/forms';
                 EducationComponent, 
                 CoursesComponent, 
                 PortfolioLinksComponent, 
-                SummaryComponent, StepperWflComponent],
+                SummaryComponent, StepperWflComponent, ExperienceItemComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
+    CoreModule,
   ],
   exports: [
     ProfileComponent, 
@@ -35,6 +39,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     CoursesComponent, 
     PortfolioLinksComponent, 
     SummaryComponent,
-    StepperWflComponent]
+    ExperienceItemComponent,
+    StepperWflComponent],
+    entryComponents: [
+      ExperienceItemComponent
+    ],
+    providers:[DynaFacadeService],
 })
 export class ResumeGeneratorModule { }

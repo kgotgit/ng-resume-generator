@@ -6,6 +6,14 @@
             <button color="primary" mat-raised-button matStepperNext class="right">Next</button>
           </div>
     </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Experience</ng-template>
+      <app-experience></app-experience>
+      <div>
+      <button mat-raised-button matStepperPrevious color="accent" class="left">Back</button>
+      <button mat-raised-button matStepperNext color="primary" class="right">Next</button>
+    </div>
+    </mat-step>
     <mat-step [stepControl]="secondFormGroup" color="secondary">
       <ng-template matStepLabel>Skills</ng-template>
       <app-skills></app-skills>
