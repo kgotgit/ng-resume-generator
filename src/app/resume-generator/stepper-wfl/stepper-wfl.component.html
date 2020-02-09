@@ -1,4 +1,4 @@
-<mat-vertical-stepper [linear]="!isLinear" #stepper class="alternate-theme container" color="primary">
+<mat-vertical-stepper [linear]="isLinear" #stepper class="alternate-theme container" color="primary">
     <mat-step [stepControl]="firstFormGroup">
       <ng-template matStepLabel>Profile</ng-template>
         <app-profile [firstFormGroup]="firstFormGroup" (formGroupEmitter)="listenToFormGroup($event)"></app-profile>
@@ -13,16 +13,7 @@
       <button mat-raised-button matStepperPrevious color="accent" class="left">Back</button>
           <button mat-raised-button matStepperNext color="primary" class="right">Next</button>
         </div>
-      <!-- <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill out your address</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Address" formControlName="secondCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form> -->
+     
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>

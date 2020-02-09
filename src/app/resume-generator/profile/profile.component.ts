@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
 
-  isLinear = false;
+  isLinear = true;
   @Output() formGroupEmitter=new EventEmitter<FormGroup>();
   @Input() firstFormGroup: FormGroup;
  
