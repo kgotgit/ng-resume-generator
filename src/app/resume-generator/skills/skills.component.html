@@ -1,7 +1,49 @@
+<form [formGroup]="firstFormGroup">
 
-
-<div class="row">
+  <div class="row">
     <div class="col s12">
-        <div class="row"></div>
+      <div class="row">
+        <div class="col s6">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Skill</mat-label>
+            <input matInput formControlName="skill" (keydown)="addSkill($event)">
+          </mat-form-field>
+        </div>
+        <div class="col s6">
+            <div class="row">
+                <div class="col s3">
+          <button mat-raised-button color="primary">
+            <i class="material-icons">
+                add_circle_outline
+                </i>  
+            Add</button>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col s3">
+            <button mat-raised-button color="primary">
+                <i class="material-icons">
+                    remove_circle_outline
+                    </i>  
+                Delete</button>
+            </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="row">
+         <div class="col s6">
+        <mat-card>
+          <mat-selection-list #skills>
+            <mat-list-option *ngFor="let skill of _skills">
+              {{skill}}
+            </mat-list-option>
+          </mat-selection-list>
+        </mat-card>
+        </div>
+      </div>
+
     </div>
-</div>
+
+  </div>
+</form>
