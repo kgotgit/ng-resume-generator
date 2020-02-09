@@ -21,7 +21,7 @@ export class DynaFacadeService {
       viewContainerRef.clear();
     }
     const componentRef=viewContainerRef.createComponent(componentFactory);
-    return componentRef.instance;
+    return componentRef;
 
   }
 }
