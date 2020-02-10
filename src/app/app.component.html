@@ -1,20 +1,22 @@
-<mat-sidenav-container class="toggle-nav alternate-theme" fullScreen> 
-<mat-sidenav #sideNav>
+<mat-sidenav-container class="toggle-nav alternate-theme" fullScreen>
+  <mat-sidenav #sideNav>
     <mat-nav-list>
-        <a mat-list-item routerLink="stepper">
-            <mat-icon>home</mat-icon>
-            <span>Home</span>
-        </a>
+      <a mat-list-item routerLink="stepper">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
     </mat-nav-list>
-</mat-sidenav>
-<mat-toolbar color="primary" class="top-nav">
-    <button mat-icon-button (click)="sideNav.open()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <h1 class="app-name">Ng Resume Generator</h1>
-
-    
+  </mat-sidenav>
+  <mat-toolbar color="primary" class="top-nav">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sideNav.open()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <h1 class="app-name">Ng Resume Generator</h1>
+      <span class="fill-space"></span>
+      <a  mat-icon-button href="https://kgotgit.github.io/ng-resume-generator/" target="_blank">GitHub</a>
+    </mat-toolbar-row>
   </mat-toolbar>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </mat-sidenav-container>

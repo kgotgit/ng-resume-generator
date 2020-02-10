@@ -22,7 +22,8 @@ export class ExperienceItemComponent implements OnInit,OnDestroy {
       role:['',Validators.required],
       workHere:[false],
       from:['',Validators.required],
-      to:['',Validators.required]
+      to:['',Validators.required],
+      responsibilities:['',Validators.required]
     });
   
   }
