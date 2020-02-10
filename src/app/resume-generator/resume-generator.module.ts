@@ -10,10 +10,11 @@ import { SummaryComponent } from './summary/summary.component';
 import { MaterialModule } from '../material/material.module';
 import { ResumeGeneratorRoutingModule } from './resume-generator-routing.module';
 import { StepperWflComponent } from './stepper-wfl/stepper-wfl.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ExperienceItemComponent } from './experience/experience-item/experience-item.component';
 import { DynaFacadeService } from '../core/services/dyna-facade.service';
 import { CoreModule } from '../core/core.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -29,6 +30,8 @@ import { CoreModule } from '../core/core.module';
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
+    MatFormFieldModule,
+    FormsModule,
     CoreModule,
   ],
   exports: [

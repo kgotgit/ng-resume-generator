@@ -1,1 +1,51 @@
-<p>experience-item works!</p>
+<mat-card>
+  <form [formGroup]="_formGroup">
+
+    <div class="row">
+      <div class="col s6">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Employer</mat-label>
+          <input matInput formControlName="employer" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Client</mat-label>
+          <input matInput formControlName="client" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Role</mat-label>
+          <input matInput formControlName="role" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+       
+          <mat-checkbox  formControlName="workHere" >Presently Work here?</mat-checkbox>
+       
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>From</mat-label>
+          <input matInput formControlName="from" required placeholder="MM/YYYY">
+        </mat-form-field>
+      </div>
+      <div class="col s6">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>To</mat-label>
+          <input matInput formControlName="to" required placeholder="MM/YYYY">
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+
+</mat-card>

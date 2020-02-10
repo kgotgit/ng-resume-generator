@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-experience-item',
@@ -7,16 +9,24 @@ import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 })
 export class ExperienceItemComponent implements OnInit,OnDestroy {
  
-
-  constructor(protected ref: ChangeDetectorRef) { }
+  _formGroup:FormGroup;
+  _workHere:boolean=false;
+  constructor(protected ref: ChangeDetectorRef, private fb:FormBuilder) { }
 
   ngOnInit() {
-
-    this.ref.detectChanges();
+    this._formGroup=this.fb.group({
+      employer: ['', Validators.required],
+      client:[''],
+      role:['',Validators.required],
+      workHere:[false],
+      from:['',Validators.required],
+      to:['',Validators.required]
+    });
+  
   }
 
 
   ngOnDestroy(): void {
-    this.ref
+  
   }
 }
