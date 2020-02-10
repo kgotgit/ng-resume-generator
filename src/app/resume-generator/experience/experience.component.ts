@@ -1,45 +1,60 @@
-import { Component, OnInit, ViewChild, ViewChildren, QueryList, ChangeDetectorRef, AfterViewInit, ComponentRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren, QueryList, ChangeDetectorRef, AfterViewInit, ComponentRef, OnDestroy } from '@angular/core';
 import { DynaEleDirective } from 'src/app/core/directives/dyna-ele.directive';
 import { DynaFacadeService } from 'src/app/core/services/dyna-facade.service';
 import { ExperienceItemComponent } from './experience-item/experience-item.component';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.scss']
 })
-export class ExperienceComponent implements OnInit,AfterViewInit {
-  
+export class ExperienceComponent implements OnInit, AfterViewInit,OnDestroy {
+ 
 
-  @ViewChild(DynaEleDirective,{static:true}) appDynaEle:DynaEleDirective;
-  alist:ExperienceItemComponent[]=new Array() as ExperienceItemComponent[];
-  
-  @ViewChildren(ExperienceItemComponent,) experienceItems:QueryList<ExperienceItemComponent>;
-  compRef:ComponentRef<ExperienceItemComponent>[]=[];
-  constructor(private dynaEleService:DynaFacadeService,private ref: ChangeDetectorRef) { }
+
+  @ViewChild(DynaEleDirective, { static: true }) appDynaEle: DynaEleDirective;
+  alist: ExperienceItemComponent[] = new Array() as ExperienceItemComponent[];
+  compRefMap: Map<number, ComponentRef<ExperienceItemComponent>> = new Map<number, ComponentRef<ExperienceItemComponent>>();
+  _exItemCounter: number = 0;
+  _destroy$=new Subject();
+  constructor(private dynaEleService: DynaFacadeService, private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
+
+    this.addExperience(null);
   }
 
 
-  addExperience($event){
+  addExperience($event) {
+    let componentRef: ComponentRef<ExperienceItemComponent> = this.dynaEleService.appendComponent(this.appDynaEle, ExperienceItemComponent, false);
+    componentRef.instance.id = ++this._exItemCounter;
+    componentRef.instance.deleteItem.pipe(
+      takeUntil(this._destroy$)
+    ).subscribe((id:number)=>{
+      this.deleteExperience(id);
+    })
+    this.compRefMap.set(componentRef.instance.id, componentRef);
 
-    this.compRef.push(this.dynaEleService.appendComponent(this.appDynaEle,ExperienceItemComponent,false));
-    
-    
-
-    
   }
 
-  deleteExperiences($event){
-    this.compRef.forEach((item:ComponentRef<ExperienceItemComponent>)=>{
-      item.destroy();
-    });
+  deleteExperience(id:number) {
+    if(this.compRefMap.size>1){
+      let comp:ComponentRef<ExperienceItemComponent>=this.compRefMap.get(id);
+      if(comp!=null){
+        comp.destroy();
+      }
+    }
   }
 
   ngAfterViewInit(): void {
-    this.experienceItems.changes.subscribe((changes)=>{
-      console.log(changes);
-    })
+   
+  }
+
+  ngOnDestroy(): void {
+    
+    this._destroy$.next();
+    this._destroy$.complete();
   }
 }

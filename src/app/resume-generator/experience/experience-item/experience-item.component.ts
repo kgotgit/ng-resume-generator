@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThrowStmt } from '@angular/compiler';
 
@@ -11,6 +11,8 @@ export class ExperienceItemComponent implements OnInit,OnDestroy {
  
   _formGroup:FormGroup;
   _workHere:boolean=false;
+  @Input() id:number=null;
+  @Output() deleteItem=new EventEmitter<number>();
   constructor(protected ref: ChangeDetectorRef, private fb:FormBuilder) { }
 
   ngOnInit() {
@@ -25,7 +27,9 @@ export class ExperienceItemComponent implements OnInit,OnDestroy {
   
   }
 
-
+  deleteExperience(){
+    this.deleteItem.emit(this.id);
+  }
   ngOnDestroy(): void {
   
   }

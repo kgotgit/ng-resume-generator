@@ -1,15 +1,16 @@
 <div class="row">
-    <div class="col s12">
-        <button mat-raised-button color="primary" title="Add" (click)="addExperience($event)">
-            <i class="material-icons">
-                add_circle_outline
-                </i>  
-            </button>
-            <button mat-raised-button color="primary" title="remove" (click)="deleteExperiences($event)">
-                <i class="material-icons">
-                    remove_circle_outline
-                    </i>  
-                </button>
-        <ng-container appDynaEle></ng-container>
+  <div class="col s12">
+    <div class="right">
+      <button mat-raised-button color="primary" title="Add" (click)="addExperience($event)" title="Add Experience">
+        <i class="material-icons">
+          add_circle_outline
+        </i>
+    </button>
     </div>
+    <div class="row">
+      <div class="col s12">
+        <ng-container appDynaEle></ng-container>
+      </div>
+    </div>
+  </div>
 </div>
